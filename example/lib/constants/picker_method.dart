@@ -24,6 +24,7 @@ class PickMethod {
           context,
           maxAssets: maxAssetsCount,
           selectedAssets: assets,
+          themeColor: Colors.white,
           requestType: RequestType.image,
         );
       },

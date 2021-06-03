@@ -74,8 +74,10 @@ class AssetPicker<A, P> extends StatelessWidget {
     }
 
     try {
-      final bool isPermissionGranted = await PhotoManager.requestPermission();
-      if (isPermissionGranted) {
+      final PermissionState permissionState =
+          await PhotoManager.requestPermissionExtend();
+      if (permissionState == PermissionState.limited ||
+          permissionState == PermissionState.authorized) {
         final DefaultAssetPickerProvider provider = DefaultAssetPickerProvider(
           maxAssets: maxAssets,
           pageSize: pageSize,
